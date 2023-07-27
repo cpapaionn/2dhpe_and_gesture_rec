@@ -1,0 +1,14 @@
+gesture_prediction_interval: "1" 
+no_gesture_thres: "0.65"
+
+# gesture_model_5g_weights_path: "data/models/GestureWeights/new_5g.pth"
+# gesture_model_6g_weights_path: "data/models/GestureWeights/new_6g.pth"
+gesture_model_5g_weights_path: "data/models/GestureWeights/mixed_5g_ref.pth"
+gesture_model_6g_weights_path: "data/models/GestureWeights/mixed_6g_ref.pth"
+pose2d_model_weights_path: "data/models/HumanPoseWeights/model_2d.pth"
+
+# gdrive_url_gesture_5classes: "https://drive.google.com/file/d/1zhLR400eh9pxTQVsGrwszBxZmRG-QYNI/view?usp=sharing"
+# gdrive_url_gesture_6classes: "https://drive.google.com/file/d/1nqw0-AODaFpzQKxFjChKx1Zw9MqC-CtL/view?usp=sharing"
+gdrive_url_gesture_5classes: "https://drive.google.com/file/d/1oZgMVwUBGrVzZY0gzvvX9yK8W1vCEnvg/view?usp=sharing"
+gdrive_url_gesture_6classes: "https://drive.google.com/file/d/1Mq_1cUUN1SjELYLrCSzHka1rMvR4goaL/view?usp=sharing"
+gdrive_url_pose2d: "https://drive.google.com/file/d/1G0K2xuH7P6x7o-UjZwdKrE4G2KcnNoKL/view?usp=sharing"

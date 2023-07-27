@@ -1,0 +1,8 @@
+model_type: "rosbag"
+pose3d_model_weights_path: "data/models/HumanPoseWeights/generator_repnet_h36m_17j_late.h5"
+
+cam_distortion: [0.19421363, 0.24040854, 0.00274089, 0.00161903, 0.00681998]
+cam_matrix: [[1149.6757, 0.0, 508.848622], [0.0, 1147.59162, 508.064917], [0.0, 0.0, 1.0]]
+
+gdrive_url_pose_3d: "https://drive.google.com/file/d/1CPuL5qtfa9ZDB8mkYCoHOfniY_u_GhZ2/view?usp=sharing"
+
