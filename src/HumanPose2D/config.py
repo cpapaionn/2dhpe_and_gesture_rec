@@ -50,5 +50,5 @@ C.FLIP_PAIRS = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12], [13, 14], [15
 C.POST_PROCESS = True
 C.SHIFT_HEATMAP = True
 C.TEST_BLUR_KERNEL = 11
-C.GPUS = (0,)
+C.GPUS = []
 
