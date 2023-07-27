@@ -55,30 +55,32 @@ def predict(cfg, model, img, bbox, device=None):
 def crop_img_to_bbox(img, bbox, aspect_ratio_thres=0.75):
     # Adjust bbox for 2D human pose model
     bbox_y, bbox_x, bbox_h, bbox_w = bbox[0], bbox[1], bbox[2], bbox[3]
-    if bbox_y < 0 : bbox_y = 0
-    if bbox_x < 0 : bbox_x = 0
+    if bbox_y < 0:
+        bbox_y = 0
+    if bbox_x < 0:
+        bbox_x = 0
     
     bbox_x_c, bbox_y_c, bbox_h_c, bbox_w_c = bbox_x, bbox_y, bbox_h, bbox_w
 
-    if bbox_w / np.float(bbox_h) < aspect_ratio_thres:
-        bbox_h_new = np.int(bbox_h)
-        bbox_w_new = np.int(bbox_h * aspect_ratio_thres)
-        bbox_x_new = np.int(bbox_x - ((bbox_w_new - bbox_w) // 2))
+    if bbox_w / float(bbox_h) < aspect_ratio_thres:
+        bbox_h_new = int(bbox_h)
+        bbox_w_new = int(bbox_h * aspect_ratio_thres)
+        bbox_x_new = int(bbox_x - ((bbox_w_new - bbox_w) // 2))
         if bbox_x_new < 0:
             bbox_x_new = 0
         if bbox_x_new + bbox_w_new > img.shape[1]:
             bbox_w_new = img.shape[1] - bbox_x_new
-            bbox_h_new = np.int(bbox_w_new / aspect_ratio_thres)
+            bbox_h_new = int(bbox_w_new / aspect_ratio_thres)
         bbox_x_c, bbox_y_c, bbox_h_c, bbox_w_c = bbox_x_new, bbox_y, bbox_h_new, bbox_w_new
-    elif bbox_w / np.float(bbox_h) > aspect_ratio_thres:
-        bbox_w_new = np.int(bbox_w)
-        bbox_h_new = np.int(bbox_w / aspect_ratio_thres)
-        bbox_y_new = np.int(bbox_y - ((bbox_h_new - bbox_h) // 2))
+    elif bbox_w / float(bbox_h) > aspect_ratio_thres:
+        bbox_w_new = int(bbox_w)
+        bbox_h_new = int(bbox_w / aspect_ratio_thres)
+        bbox_y_new = int(bbox_y - ((bbox_h_new - bbox_h) // 2))
         if bbox_y_new < 0:
             bbox_y_new = 0
         if bbox_y_new + bbox_h_new > img.shape[0]:
             bbox_h_new = img.shape[0] - bbox_y_new
-            bbox_w_new = np.int(bbox_h_new * aspect_ratio_thres)
+            bbox_w_new = int(bbox_h_new * aspect_ratio_thres)
         bbox_x_c, bbox_y_c, bbox_h_c, bbox_w_c = bbox_x, bbox_y_new, bbox_h_new, bbox_w_new
 
     cropped_img = img[bbox_y_c:bbox_y_c+bbox_h_c, bbox_x_c:bbox_x_c+bbox_w_c]
@@ -103,12 +105,3 @@ def bbox2cs(bbox, aspect_ratio_thres=0.75, pixel_std=200):
     #     scale = scale * 1.25
 
     return np.expand_dims(center, axis=0), np.expand_dims(scale, axis=0)
-
-
-
-
-
-
-
-
-

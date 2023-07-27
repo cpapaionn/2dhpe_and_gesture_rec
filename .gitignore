@@ -5,6 +5,7 @@
 *.pth
 *.model
 *.mp4
+*.jpg
 *.idea
 *.h5
 
